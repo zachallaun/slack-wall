@@ -5,35 +5,69 @@
 	<title>Slack Wall Testground</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/chat.css" rel="stylesheet" media="screen">
     <link href="css/mine.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
-<p>
-<br>
-<br>
-<br>
-<br>
-
-<div class="popover top"> <div class="arrow"></div> <h3 class="popover-title">Popover top</h3> <div class="popover-content"> <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p> </div> </div>
-
-<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content">boo</div></div>
 
 
-<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" title="User #1:" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-  Pop
-</button>
-<p>
-<br>
-<p align="right">
-<button type="button" align="right" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" title="User #2:" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-  Pop
-</button>
-</p>
+<div class="fabs">
+  <div class="chat">
+    <div class="chat_header">
+      <span id="chat_head">Live Chat</span>
+      <div class="chat_loader"></div>
+      <div class="chat_option"><i class="zmdi zmdi-more-vert"></i>
+        <ul>
+          <li><span class="chat_color" style="border:solid 5px #2196F3" color="blue"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #00bcd4" color="cyan"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #607d8b" color="blue-grey"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #4caf50" color="green"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #8bc34a" color="light-green"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #cddc39" color="lime"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #ffc107" color="amber"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #ff5722" color="deep-orange"></span></li>
+          <li><span class="chat_color" style="border:solid 5px #f44336" color="red"></span></li>
+        </ul>
+      </div>
 
+    </div>
+    <div class="chat_login">
+        <a id="chat_send_email" class="fab"><i class="zmdi zmdi-email"></i></a>
+        <input id="chat_log_email" placeholder="Email"></input>
+    <div class="chat_login_alert"></div>
+    </div>
+    <div id="chat_converse" class="chat_converse">
+      <span class="chat_msg_item chat_msg_item_admin">
+            <div class="chat_avatar">
+              <!-- <i class="zmdi zmdi-headset-mic"></i> -->
+              <i class="zmdi zmdi-account"></i>
+            </div>Hi! How may I be of service</span>
+      <span class="chat_msg_item chat_msg_item_user">
+            <div class="chat_avatar">
+              <i class="zmdi zmdi-account"></i>
+            </div>Ermm..</span>
+    </div>
+    <div class="fab_field">
+      <a id="fab_listen" class="fab"><i class="zmdi zmdi-mic-outline"></i></a>
+      <a id="fab_send" class="fab"><i class="zmdi zmdi-mail-send"></i></a>
+      <textarea id="chatSend" name="chat_message" placeholder="Write a message" class="chat_field chat_message"></textarea>
+    </div>
+  </div>
+<!--   <a target="_blank" id="fab_help" class="fab"><i class="zmdi zmdi-help-outline"></i></a>  THIS WAS THE QUESTION MARK -->  
+ <a id="prime" class="fab"><i class="prime zmdi zmdi-plus"></i></a>
+</div>
+
+
+
+<!-- I'll be needing this later... ???
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="..."></iframe>
+</div>
+ -->
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chat.js"></script>
 	<script src="js/mine.js"></script>
-	<script>$('.btn').popover('show')</script>
 </body>
 </html>
