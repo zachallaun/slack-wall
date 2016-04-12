@@ -37,13 +37,16 @@ function toggleFab() {                  //does not re-initialize the conversatio
 //User msg
 function userSend(text) {
   var img = '<i class="zmdi zmdi-account"></i>';
+
+  
   $('#chat_converse').append('<div class="chat_msg_item chat_msg_item_user"><div class="chat_avatar">' + img + '</div>' + text + '</div>');
   $('#chatSend').val('');
   if ($('.chat_converse').height() >= 256) {
     $('.chat_converse').addClass('is-max');
   }
   $('.chat_converse').scrollTop($('.chat_converse')[0].scrollHeight);
-// if first word of userSend is speak: then botSpeak(text);
+  // botSpeak(text); 
+//IDEA:  if first word of userSend is speak: then botSpeak(text);
 
 }
 
