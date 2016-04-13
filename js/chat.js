@@ -1,9 +1,9 @@
 // toggleFab(); // this makes the default be visible. 
 
-//define chat color
+                                                              //define chat color
 if (typeof(Storage) !== "undefined") {
   // if (localStorage.getItem('fab-color') === null) {
-    localStorage.setItem("fab-color", "lime");
+    localStorage.setItem("fab-color", "blue-grey");
   // }
   $('.fabs').addClass(localStorage.getItem("fab-color"));
 } else {
@@ -31,14 +31,22 @@ function toggleFab() {                  //does not re-initialize the conversatio
   $('#prime').toggleClass('is-float');
   $('.chat').toggleClass('is-visible');
   $('.fab').toggleClass('is-visible');  
-  
+}
+
+function activeFab() {                  //does not re-initialize the conversation, just toggles visibility. 
+  $('.prime').addClass('zmdi-plus');
+  $('.prime').addClass('zmdi-close');
+  $('.prime').addClass('is-active');
+  $('#prime').addClass('is-float');
+  $('.chat').addClass('is-visible');
+  $('.fab').addClass('is-visible');  
 }
 
 //User msg
-function userSend(text) {
-  var img = '<i class="zmdi zmdi-account"></i>';
+function userSend(text, imgurl) {
+  imgurl= '<img src="'+imgurl+'"> </img>'; 
+  var img = imgurl; //'<i class="zmdi zmdi-account"></i>';
 
-  
   $('#chat_converse').append('<div class="chat_msg_item chat_msg_item_user"><div class="chat_avatar">' + img + '</div>' + text + '</div>');
   $('#chatSend').val('');
   if ($('.chat_converse').height() >= 256) {
