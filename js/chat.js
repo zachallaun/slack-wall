@@ -54,8 +54,6 @@ function userSend(text, imgurl) {
   }
   $('.chat_converse').scrollTop($('.chat_converse')[0].scrollHeight);
   // botSpeak(text); 
-//IDEA:  if first word of userSend is speak: then botSpeak(text);
-
 }
 
 //Admin msg
@@ -151,30 +149,30 @@ $(".fab").click(function(e) {
   }).addClass("animate");
 });
 
-// Cookies handler 
-function createCookie(name, value, days) {
-  var expires;
+// // Cookies handler 
+// function createCookie(name, value, days) {
+//   var expires;
 
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    expires = "; expires=" + date.toGMTString();
-  } else {
-    expires = "";
-  }
-  document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
-}
+//   if (days) {
+//     var date = new Date();
+//     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+//     expires = "; expires=" + date.toGMTString();
+//   } else {
+//     expires = "";
+//   }
+//   document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+// }
 
-function readCookie(name) {
-  var nameEQ = encodeURIComponent(name) + "=";
-  var ca = document.cookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
-  }
-  return null;
-}
+// function readCookie(name) {
+//   var nameEQ = encodeURIComponent(name) + "=";
+//   var ca = document.cookie.split(';');
+//   for (var i = 0; i < ca.length; i++) {
+//     var c = ca[i];
+//     while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+//     if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+//   }
+//   return null;
+// }
 
 function eraseCookie(name) {
   createCookie(name, "", -1);
@@ -231,7 +229,7 @@ function hideChat(hide) {
     $('.chat_converse').css('display', 'none');
     $('.fab_field').css('display', 'none');
   } else {
-    $('#chat_head').html(readCookie('fab_chat_username'));
+    // $('#chat_head').html(readCookie('fab_chat_username'));
     // Help
     $('#fab_help').click(function(){userSend('Help!');});
     $('.chat_login').css('display', 'none');
