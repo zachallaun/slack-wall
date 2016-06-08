@@ -1,7 +1,5 @@
 
 var bgArray=[
-			{url: "img/notices/1.jpg", annote: " "},
-			{url: "img/notices/2.jpg", annote: " "},
 			{url: "img/backgrounds/1.jpg", annote: "\'Mountain\' by Atölye member Deniz"},
 			{url: "img/backgrounds/2.jpg", annote: "\'Alleyway\' by Atölye member Deniz"},
 			{url: "img/backgrounds/3.jpg", annote: "\'Looking up!\' by Atölye member Deniz"},
@@ -19,7 +17,7 @@ function swipeBG (i){
 	return i;
 }
 
-function addBG(newBG, user, timer) {
+function addBG(newBG, user, timer) {	// if image is bigger/smaller than screen, make necessary adjustments.
 	$(".full").css("background","url("+newBG+") no-repeat center center fixed");
 	$(".full").css("background-size","cover");
 	$(".bganno").text("image submitted by Atölye member "+user);
@@ -41,11 +39,19 @@ function slackConnect(messageOnTime, timer){
 	var sock = new WebSocket(url);     //https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
 	sock.onmessage = function (event) {
 		thisevent= JSON.parse(event.data);
+// console.log(thisevent);
 		if (thisevent.type==="message"){
 			userid= thisevent.user;
 			var username= usersbynum[userid].real_name;
 			var iurl= usersbynum[userid].profile.image_512;
-			if (thisevent.text.slice(0,6)=== 'speak:'){
+
+			if (thisevent.subtype !== null && thisevent.subtype === "file_share"){       // Drag & Drop image
+// console.log(thisevent);
+				var pic_url= thisevent.file.url_private;
+				var pic_dl = thisevent.file.url_private_download;
+				timer= addBG(pic_url, username, timer);
+			}
+			else if (thisevent.text.slice(0,6)=== 'speak:'){									 	// Speak command
 				$(".messageim").attr("src", iurl);
 				$(".msg").fadeIn(300);
 				$(".msg p").text('\"'+thisevent.text.slice(7)+'\"');
@@ -54,9 +60,9 @@ function slackConnect(messageOnTime, timer){
 					var msg = new SpeechSynthesisUtterance(thisevent.text.slice(7));
 			    	window.speechSynthesis.speak(msg);
 				}
-			} else if (thisevent.text.slice(0,3)=== 'bg:') {
+			} else if (thisevent.text.slice(0,3)=== 'bg:') {								// bg image url
 				timer= addBG(thisevent.text.slice(4,-1), username, timer);
-			} else {
+			} else {																		// Regular message
 				$(".messageim").attr("src", iurl);
 				$(".msg").fadeIn(300);
 				$(".msg p").text('\"'+thisevent.text+'\"');
@@ -65,19 +71,6 @@ function slackConnect(messageOnTime, timer){
 			return timer;
 		}}; }
 
-// $(".messageim").attr("src", 'img/arduino.jpg');
-// $(".msg").fadeIn(300);
-// var userSend= function(text, url){
-// 	$(".msg").fadeIn(300);
-// // 	setTimeout(3000);
-// // 	$(".pop").fadeOut(300);
-// };
-// var notificationtimer= setInterval(notify, 30000);
-// var notify= function(){
-// 	// .msg.display=== "block";
-// 	$(".notice").fadeIn(300);
-// 	setTimeout(function(){ $(".notice").fadeOut(300); }, 10000);
-// };
 
 var bgInterval=5000;
 var noticeInterval=5000;
@@ -87,4 +80,8 @@ var counter= -1;
 window.onload = function(){
 	var timer= setInterval(function(){counter = swipeBG(counter);}, bgInterval);
 	slackConnect(messageOnTime, timer);
+	// $(".messageim").attr("src", 'img/backgrounds/3.jpg');
+	// $(".msg").fadeIn(300);
+	// $(".msg p").text('\"hey\"');
+	// setTimeout(function(){ $(".msg").fadeOut(300); }, messageOnTime);
 };
