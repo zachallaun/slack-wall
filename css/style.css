@@ -13,13 +13,14 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-.full {
-	background: #ffffff url('../img/backgrounds/1.jpg') no-repeat center center fixed;
+.bgimg {
+	background: transparent url('../img/backgrounds/1.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	transition: background 2s ease-in;
+	transition: background 4s ease-in;
+	transition: background-size 0s;
 	font-family: 'PxGroteskRegular';
 }
 
@@ -40,29 +41,16 @@ body {
 	left:5%;
 	width:90%;
 	height:90%;
-	background: #8ED0CD;
+	background: #F5F6F7;
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
 	outline:10px solid @link;
-	/*opacity: 0.85;*/
-}
-
-.message > h1 {
-	padding:30px 30px 10px 30px;
-	color:#F5F6F7;
-	font-size:150%;
-}
-
-.msg > p {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	height: 270px;
-	padding-left:400px;
-	color:#F5F6F7;
+	opacity: 0.95;
+	word-break: break-all;
+	word-wrap: break-word;
 	font-size: 100px;
 }
 
@@ -71,19 +59,34 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 40px;
+	margin-top: -77px;
 }
 
 /*add drop shadowwwwwwwwww!!!!!!!!!!!!!*/
 
-.messageim {
+.msgimg {
 	width: 150px;
 	border-radius: 50%;
 	background: #F5F6F7;
 	padding: 5px;
-	margin-top: -125px;
 }
 
 .name {
+	color:#619390;
 	position: relative;
 	text-align: center;
+	font-size: 18px;
+	margin-top: -30px;
+}
+
+.msgtext {
+	display:flex;
+	vertical-align: middle;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	padding-left:275px;
+	color:#619390;
+	font-size: 100px;
+	line-height: 1;
 }
