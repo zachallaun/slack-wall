@@ -1,4 +1,3 @@
-
 var bgArray=[
 			{url: "img/backgrounds/1.jpg", annote: "\'Mountain\' by Atölye member Deniz"},
 			{url: "img/backgrounds/2.jpg", annote: "\'Alleyway\' by Atölye member Deniz"},

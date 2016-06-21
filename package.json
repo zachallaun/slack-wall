@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/seabeachatebbtide/slack-wall/issues"
   },
-  "homepage": "https://github.com/seabeachatebbtide/slack-wall#readme"
+  "homepage": "https://github.com/seabeachatebbtide/slack-wall#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
