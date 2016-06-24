@@ -1,8 +1,9 @@
+//this is testing new commit
 var bgArray=[
-			{url: "img/backgrounds/1.jpg", annote: "\'Mountain\' by Atölye member Deniz"},
-			{url: "img/backgrounds/2.jpg", annote: "\'Alleyway\' by Atölye member Deniz"},
-			{url: "img/backgrounds/3.jpg", annote: "\'Looking up!\' by Atölye member Deniz"},
-			{url: "img/backgrounds/4.jpg", annote: "\'Waves\' by Atölye member Deniz"}	];
+			{url: "images/bg/1.jpg", annote: "\'Mountain\' by Atölye member Deniz"},
+			{url: "images/bg/2.jpg", annote: "\'Alleyway\' by Atölye member Deniz"},
+			{url: "images/bg/3.jpg", annote: "\'Looking up!\' by Atölye member Deniz"},
+			{url: "images/bg/4.jpg", annote: "\'Waves\' by Atölye member Deniz"}	];
 
 function swipeBG (i){
 	if (typeof(i)==="undefined"){var i=0;}
