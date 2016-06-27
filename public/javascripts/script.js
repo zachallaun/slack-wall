@@ -94,4 +94,5 @@ var counter = -1;
 window.onload = function(){
 	var timer= setInterval(function(){counter = swipeBG(counter);}, bgInterval);
 	slackConnect(messageOnTime, timer);
+	console.log(app.token); 
 };
